@@ -8,11 +8,19 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
 
     const types = pokeDetail.types.map((typeSlot) => typeSlot.type.name)
     const [type] = types
-
     pokemon.types = types
     pokemon.type = type
 
     pokemon.photo = pokeDetail.sprites.other.dream_world.front_default
+
+    const abilities = pokeDetail.abilities.map((abilitiesSlot) => abilitiesSlot.ability.name);
+    pokemon.abilities = abilities;
+    pokemon.height = pokeDetail.height;
+    
+    const stats = pokeDetail.stats.map((statSlot) => statSlot.stat.name)
+    const [stat] = stats
+    pokemon.stats = stats
+    pokemon.stat = stat
 
     return pokemon
 }
